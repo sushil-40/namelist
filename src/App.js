@@ -5,6 +5,7 @@ import { useState } from "react";
 function App() {
   //if we need any update in value then should use state  (like useState)
   const [name, setName] = useState("Tej");
+  const [list, setList] = useState([]);
 
   const handleOnChange = (e) => {
     // const str = e.target.value;
@@ -17,6 +18,13 @@ function App() {
     setName(value);
     // console.log(value);
   };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    setList([...list, name]);
+  };
+  console.log(list);
+
   return (
     <div
       className="wrapper"
@@ -34,7 +42,7 @@ function App() {
       >
         <div className="display">{name}</div>
         <div className="form">
-          <form action="">
+          <form action="" onSubmit={handleOnSubmit}>
             <input
               type="text"
               required
@@ -47,10 +55,9 @@ function App() {
         <hr />
         <div className="list">
           <ul>
-            <li>Tej</li>
-            <li>Suni</li>
-            <li>Satya</li>
-            <li>Zarina</li>
+            {list.map((item, i) => {
+              return <li>{item}</li>;
+            })}
           </ul>
         </div>
       </div>
