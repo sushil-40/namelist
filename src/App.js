@@ -1,29 +1,26 @@
-import { getByDisplayValue } from "@testing-library/react";
-import "./App.css";
 import { useState } from "react";
+import "./App.css";
+import { Display } from "./components/Display";
+import { Form } from "./components/Form";
+import { UserList } from "./components/UserList";
 
 function App() {
-  //if we need any update in value then should use state  (like useState)
-  const [name, setName] = useState("Tej");
+  // const [name, setName] = useState("");
   const [list, setList] = useState([]);
 
-  const handleOnChange = (e) => {
-    // const str = e.target.value;
-    // console.log(str);
-
-    // target is object so that we can destructure and use like below
-    const { value } = e.target;
-
-    //update destructured name property of useState
-    setName(value);
-    // console.log(value);
-  };
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
+  const addUser = (name) => {
     setList([...list, name]);
   };
-  console.log(list);
+
+  // const handleOnChange = (e) => {
+  //   const { value } = e.target;
+  //   setName(value);
+  // };
+
+  // const handleOnSubmit = (e) => {
+  //   e.preventDefault();
+  //   setList([...list, name]);
+  // };
 
   return (
     <div
@@ -38,28 +35,15 @@ function App() {
     >
       <div
         className="userList"
-        style={{ boxShadow: "0 0 10px grey", padding: "2rem" }}
+        style={{
+          boxShadow: "0 0 10px grey",
+          padding: "2rem",
+        }}
       >
-        <div className="display">{name}</div>
-        <div className="form">
-          <form action="" onSubmit={handleOnSubmit}>
-            <input
-              type="text"
-              required
-              placeholder="enter name"
-              onChange={handleOnChange}
-            />
-            <button>Add User</button>
-          </form>
-        </div>
+        <Form addUser={addUser} />
+
         <hr />
-        <div className="list">
-          <ul>
-            {list.map((item, i) => {
-              return <li>{item}</li>;
-            })}
-          </ul>
-        </div>
+        <UserList list={list} />
       </div>
     </div>
   );
