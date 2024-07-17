@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+hr {
+  color: blue;
+}
+.wrapper {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.display-screen {
+  width: 350px;
+  height: 150px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-top: 10px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 0 15px rgb(5, 226, 23);
+}
+
+.card {
+  width: 350px;
+  box-shadow: 0 0 15px rgb(223, 164, 241);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  gap: 1rem;
+}
+.input-field-container {
+  gap: 1rem;
+}
+.input-field {
+  color: chocolate;
+  border: 2px double goldenrod;
+}
+.display-list {
+  width: 350px;
+  height: 250px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 1rem;
+  /* text-align: center; */
+  box-shadow: 0 0 15px rgb(31, 193, 233);
+  overflow: scroll;
+  position: relative;
+}
+.display-list-title {
+  text-align: center;
+  position: sticky;
+  top: 0;
+}

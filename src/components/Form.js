@@ -2,37 +2,34 @@ import React, { useState } from "react";
 import { Display } from "./Display";
 
 export const Form = ({ addUser }) => {
-  const [name, setName] = useState("");
-
+  const [user, setUser] = useState("");
   const handleOnChange = (e) => {
-    // const str = e.target.value;
-    // console.log(str);
-
-    // target is object so that we can destructure and use like below
+    // console.log(e);
     const { value } = e.target;
 
-    //update destructured name property of useState
-    setName(value);
+    setUser(value);
     // console.log(value);
+
+    // console.log(e.target.value);
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // console.log(name);
-    addUser(name);
-    // setList([...list, name]);
+    addUser(user);
   };
   return (
-    <div className="form">
-      <Display name={name} />
-      <form action="" onSubmit={handleOnSubmit}>
-        <input
-          type="text"
-          required
-          placeholder="enter name"
-          onChange={handleOnChange}
-        />
-        <button>Add User</button>
-      </form>
+    <div>
+      <Display user={user} />
+      <div className="form-container card">
+        <form action="" onChange={handleOnChange} onSubmit={handleOnSubmit}>
+          <span className="title">
+            Input Form <hr />
+          </span>
+          <div className="input-field-container d-flex">
+            <input type="text" className="input-field rounded" />
+            <button className="btn btn-primary rounded">Add User</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
